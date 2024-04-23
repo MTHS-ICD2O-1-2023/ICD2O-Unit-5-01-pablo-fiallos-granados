@@ -7,13 +7,20 @@
 "use strict"
 
 const randomNumber = Math.floor(Math.random() * 6) + 1
+console.log(randomNumber)
 
 function enterClicked() {
   // input
-  const temperatureFahrenheit = parseFloat(document.getElementById("temperatureFahrenheit").value)
-  const temperatureCelsius = (temperatureFahrenheit - 32) * 5.0 / 9.0
-  const temperatureCelsiusRounded = temperatureCelsius.toFixed(2)
+  const guess = parseInt(document.getElementById("guess").value)
+
   // output
-  document.getElementById("user-info").innerHTML =
-    "temperature = " + temperatureCelsiusRounded + "<sup>o</sup>C"
+  if (guess == randomNumber) {
+    document.getElementById("user-info").innerHTML =
+      "Correct"
+  } 
+  
+  if (guess != randomNumber) {
+    document.getElementById("user-info").innerHTML =
+      "Incorrect"
+  }
 }
